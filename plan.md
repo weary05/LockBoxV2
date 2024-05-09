@@ -4,7 +4,7 @@ classDiagram
         public get string : AccountName
         public get string : Password
         public get string : ExtraNotes
-        public get EmailAddress : RegisteredEmail
+        public get MailAddress : RegisteredEmail
     }
     class AccountHandler{
         public get List : Accounts
@@ -12,10 +12,6 @@ classDiagram
         public AddAccount()
         public RemoveAccount()
     }
-    class EmailAddress{
-            Verification valid email
-    }
 
     AccountHandler *-- Account
-    EmailAddress .. Account
 ```

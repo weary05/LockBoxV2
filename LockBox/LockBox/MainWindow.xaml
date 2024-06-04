@@ -29,6 +29,7 @@
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="{StaticResource BackgroundColour}"/>
             <Setter Property="Foreground" Value="{StaticResource TextColour}"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
         </Style>
         <Style x:Key="GridStyle" TargetType="Grid">
             <Setter Property="Background" Value="{StaticResource BackgroundColour}"/>
@@ -49,7 +50,9 @@
                 <RowDefinition Height="15*"/>
             </Grid.RowDefinitions>
 
-            <Image Name="ExitButton" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,10,0" Source="ExitButton.PNG"/>
+            <Button Name="ExitButton" Grid.Column="1" Grid.Row="0" Background="{StaticResource BackgroundColour}"
+                    Content="X" Height="20" Width="20" HorizontalAlignment="Right" Margin="0 0 10 0"
+                    Click="ExitButton_Click" Foreground="{StaticResource TextColour}"/>
 
             <TextBox Name="SearchBar" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBoxStyle}" Text="Search"/>
             
@@ -57,6 +60,27 @@
                 <StackPanel Name="AccountList">
                 </StackPanel>
             </ScrollViewer>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBox Name="AccountName" Style="{StaticResource TextBoxStyle}"
+                         Margin="0 0 10 0"/>
+
+                <TextBox Name="EmailAddressBox" Style="{StaticResource TextBoxStyle}" Grid.Row="1"
+                         Margin="0 0 10 0"/>
+                
+                <TextBox Name="Password" Style="{StaticResource TextBoxStyle}" Margin="0 0 50 0"
+                         Grid.Row="2"/>
+
+                <TextBox Name="ExtraDetails" Style="{StaticResource TextBoxStyle}" Grid.Row="3"
+                         Margin="0 0 10 0"/>
+            </Grid>
 
         </Grid>
     </Border>

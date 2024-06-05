@@ -15,12 +15,16 @@ namespace LockBox
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        private AccountHandler handler = new AccountHandler();
+    {   
+        private string password = string.Empty;
+
+        private AccountHandler handler;
         public MainWindow()
         {
             InitializeComponent();
             //temporary remove later
+            password = "a";
+            handler = new(password);
             handler.AddAccount("name", "badkljcvobd@gmail.com", "b", "b");
             //
             Update(null, null);

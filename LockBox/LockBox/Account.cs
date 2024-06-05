@@ -14,7 +14,7 @@ namespace LockBox
         public string Password { get; private set; }
         public string ExtraNotes { get; private set; }
 
-        public Account(string AccountName, string Password, string ExtraNotes, string emailAddress)
+        public Account(string AccountName, string emailAddress, string Password, string ExtraNotes)
         {
             this.AccountName = AccountName;
             this.Password = Password;
@@ -24,6 +24,11 @@ namespace LockBox
                 this.Address = new MailAddress(emailAddress);
             }
             catch { throw new Exception("Email address entered is not valid"); }
+        }
+
+        public override string ToString()
+        {
+            return $"{AccountName},{Address.ToString()},{Password},{ExtraNotes}";
         }
     }
 }

@@ -69,16 +69,16 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <TextBox Name="AccountName" Style="{StaticResource TextBoxStyle}"
+                <TextBox Name="AccountNameBox" Style="{StaticResource TextBoxStyle}"
                          Margin="0 0 10 0"/>
 
                 <TextBox Name="EmailAddressBox" Style="{StaticResource TextBoxStyle}" Grid.Row="1"
                          Margin="0 0 10 0"/>
                 
-                <TextBox Name="Password" Style="{StaticResource TextBoxStyle}" Margin="0 0 50 0"
+                <TextBox Name="PasswordBox" Style="{StaticResource TextBoxStyle}" Margin="0 0 50 0"
                          Grid.Row="2"/>
 
-                <TextBox Name="ExtraDetails" Style="{StaticResource TextBoxStyle}" Grid.Row="3"
+                <TextBox Name="ExtraDetailsBox" Style="{StaticResource TextBoxStyle}" Grid.Row="3"
                          Margin="0 0 10 0"/>
             </Grid>
 

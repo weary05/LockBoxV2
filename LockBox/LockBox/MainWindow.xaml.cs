@@ -51,10 +51,10 @@ namespace LockBox
             {
                 if (account.AccountName == name)
                 {
-                    AccountName.Text = account.AccountName;
+                    AccountNameBox.Text = account.AccountName;
                     EmailAddressBox.Text = account.Address.ToString();
-                    Password.Text = account.Password;
-                    ExtraDetails.Text = account.ExtraNotes;
+                    PasswordBox.Text = account.Password;
+                    ExtraDetailsBox.Text = account.ExtraNotes;
                 }
             }
         }

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace LockBox
 {
@@ -15,17 +17,27 @@ namespace LockBox
     {
         public List<Account> accounts { get; private set; }
         private string password;
+        private string filePath;
 
-        public AccountHandler(string password) 
+        public AccountHandler(string password, string filePath) 
         {
             accounts = new List<Account>();
             this.password = password;
-            LoadData(password);
+            this.filePath = filePath;
+            LoadData(filePath);
         }
 
+        /// <summary>
+        /// Add a new account to the accounts list
+        /// </summary>
+        /// <param name="accountName">The name of the account.</param>
+        /// <param name="emailAddress">E-mail address to which the account is linked.</param>
+        /// <param name="password">The password for the account.</param>
+        /// <param name="extraNotes">Any extra details about the account that do not fit into the prior categories.</param>
         public void AddAccount(string accountName, string emailAddress, string password, string extraNotes) 
         { 
-            accounts.Add(new Account(accountName, password, extraNotes, emailAddress));
+            accounts.Add(new Account(accountName, emailAddress, password, extraNotes));
+            SaveData(filePath);
         }
 
         public void RemoveAccount(string accountName) 
@@ -39,6 +51,10 @@ namespace LockBox
             }
         }
 
+        /// <summary>
+        /// Converts the objects held in the accounts list into a string.
+        /// </summary>
+        /// <returns></returns>
         private string ConvertAccountDataToString()
         {
             string output = string.Empty;
@@ -49,25 +65,50 @@ namespace LockBox
             return output;
         }
 
+        /// <summary>
+        /// Takes string data and uses it to populate accounts list.
+        /// </summary>
+        /// <param name="data">Data to be converted into accounts.</param>
         private void LoadAccountDataFromString(string data)
         {
-            string[] lines = data.Split("\r\n");
-            foreach (string line in lines)
+            if (string.IsNullOrEmpty(data)) { return; }
+            try
             {
-                string[] parts = line.Split(',');
-                Account a = new Account(parts[0], parts[1], parts[2], parts[3]);
-                accounts.Add(a);
+                string[] lines = data.Split("\r\n");
+                foreach (string line in lines)
+                {
+                    string[] parts = line.Split(',');
+                    Account a = new Account(parts[0], parts[1], parts[2], parts[3]);
+                    accounts.Add(a);
+                }
             }
+            catch { throw new FormatException(); }
         }
 
-        private void SaveData(string data) 
+        /// <summary>
+        /// Writes encrypted string to file.
+        /// </summary>
+        /// <param name="path">File path to save data to.</param>
+        private void SaveData(string path) 
         {
-            throw new NotImplementedException();
+            string data = ConvertAccountDataToString();
+            StreamWriter writer = new(path);
+            writer.Write(Encrypter.Encrypt(data, password));
+            writer.Close();
         }
 
-        private string LoadData(string path) 
+        /// <summary>
+        /// Reads Data from file and loads to Account Handler.
+        /// </summary>
+        /// <param name="path">File path to load data from.</param>
+        /// <returns></returns>
+        private void LoadData(string path) 
         {
-            throw new NotImplementedException();
+            StreamReader reader = new(path);
+            string data = reader.ReadToEnd();
+            reader.Close();
+            data = Encrypter.Decrypt(data, password);
+            LoadAccountDataFromString (data);
         }
     }
 }

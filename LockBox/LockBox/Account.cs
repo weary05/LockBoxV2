@@ -14,16 +14,16 @@ namespace LockBox
         public string Password { get; private set; }
         public string ExtraNotes { get; private set; }
 
-        public Account(string AccountName, string emailAddress, string Password, string ExtraNotes)
+        public Account(string accountName, string emailAddress, string password, string extraNotes)
         {
-            this.AccountName = AccountName;
-            this.Password = Password;
-            this.ExtraNotes = ExtraNotes;
+            this.AccountName = accountName;
             try
             {
                 this.Address = new MailAddress(emailAddress);
             }
             catch { throw new Exception("Email address entered is not valid"); }
+            this.Password = password;
+            this.ExtraNotes = extraNotes;
         }
 
         public override string ToString()

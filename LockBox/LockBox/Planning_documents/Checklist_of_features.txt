@@ -1,0 +1,28 @@
+Core function:
+	Select different accounts to display details
+	Able to edit the information of all accounts, must confirm to save any changes to file.
+	Can encrypt data to a text file.
+	Can decrypt data from text file.
+	Able to create new accounts.
+	Able to delete registered accounts
+	Password opens first, user cannot progress without entering correct password.
+	User can define file path to data file.
+
+Data recovery:
+
+Quality of Life:
+	Ability to adjust window size (need to ensure boxes automatically resize too) or make window size proportional to the size of the display.
+	Allow multiple different files with different passwords.
+
+
+Windows:
+	Login
+		Password entry
+		Create new file
+		Define file paths (perhaps have this save the last used location).
+
+	Main
+		View Account Data
+		Edit account data
+		
+	

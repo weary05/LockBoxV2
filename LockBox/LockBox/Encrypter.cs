@@ -10,9 +10,9 @@ namespace LockBox
     /// <summary>
     /// Responsible for the encoding and decoding of data
     /// </summary>
-    static class Enccrypter
+    static internal class Encrypter
     {
-        static public string Encode(string data, string pass)
+        static public string Encrypt(string data, string pass)
         {
             byte[] textbytes = ASCIIEncoding.ASCII.GetBytes(data);
 
@@ -30,7 +30,7 @@ namespace LockBox
             return Convert.ToBase64String(enc);
         }
 
-        static public string Decode(string data, string pass)
+        static public string Decrypt(string data, string pass)
         {
             byte[] textbytes = Convert.FromBase64String(data);
 

@@ -24,8 +24,8 @@ namespace LockBox
             InitializeComponent();
             //temporary remove later
             password = "a";
-            handler = new(password);
-            handler.AddAccount("name", "badkljcvobd@gmail.com", "b", "b");
+            handler = new AccountHandler(password, "Data.txt");
+            handler.AddAccount("a", "b@gmail.com", "c", "d");
             //
             Update(null, null);
         }

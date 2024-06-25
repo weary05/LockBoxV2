@@ -25,7 +25,6 @@ namespace LockBox
             //temporary remove later
             password = "a";
             handler = new AccountHandler(password, "AppData/Data.txt");
-            handler.AddAccount("a", "b@gmail.com", "c", "d");
             //
             Update(null, null);
         }
@@ -37,6 +36,7 @@ namespace LockBox
 
         private void Update(object sender, RoutedEventArgs e)
         {
+            AccountList.Children.Clear();
             foreach (Account account in handler.accounts) 
             {
                 Button button = new Button();
@@ -61,6 +61,28 @@ namespace LockBox
                     ExtraDetailsBox.Text = account.ExtraNotes;
                 }
             }
+        }
+
+        private void CreateNewAccount(object sender, RoutedEventArgs e)
+        {
+            CreateNewAccountButton.Visibility = Visibility.Hidden;
+            SaveButton.Visibility = Visibility.Visible;
+            AccountNameBox.Text = "Account Name";
+            EmailAddressBox.Text = "Email Address";
+            PasswordBox.Text = "Password";
+            ExtraDetailsBox.Text = "Extra Notes";
+        }
+
+        private void SaveAccountData(object sender, RoutedEventArgs e)
+        {
+            handler.AddAccount(AccountNameBox.Text, EmailAddressBox.Text, PasswordBox.Text, ExtraDetailsBox.Text);
+            CreateNewAccountButton.Visibility = Visibility.Visible;
+            SaveButton.Visibility = Visibility.Hidden;
+            AccountNameBox.Text = "";
+            EmailAddressBox.Text = "";
+            PasswordBox.Text = "";
+            ExtraDetailsBox.Text = "";
+            Update(null, null);
         }
     }
 }

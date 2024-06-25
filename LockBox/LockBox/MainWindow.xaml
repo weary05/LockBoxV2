@@ -50,12 +50,18 @@
                 <RowDefinition Height="15*"/>
             </Grid.RowDefinitions>
 
-            <Button Name="ExitButton" Grid.Column="1" Grid.Row="0" Background="{StaticResource BackgroundColour}"
-                    Content="X" Height="20" Width="20" HorizontalAlignment="Right" Margin="0 0 10 0"
-                    Click="ExitButton_Click" Foreground="{StaticResource TextColour}"/>
-
             <TextBox Name="SearchBar" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBoxStyle}" Text="Search"/>
             
+            <Button Name="ExitButton" Grid.Column="1" Grid.Row="0" Style="{StaticResource ButtonStyle}"
+                    Content="X" Height="20" Width="20" HorizontalAlignment="Right" Margin="0 0 10 0"
+                    Click="ExitButton_Click"/>
+            <Button Name="CreateNewAccountButton" Grid.Column="1" Grid.Row="0" Style="{StaticResource ButtonStyle}"
+                    Margin="10 0 0 0"
+                    Content="Add New" Height="20" Width="80" HorizontalAlignment="Left" Click="CreateNewAccount"/>
+            <Button Name="SaveButton" Grid.Column="1" Grid.Row="0" Background="Red"
+                    Foreground="{StaticResource TextColour}" Margin="10 0 0 0" Visibility="Hidden"
+                    Content="Save" Height="20" Width="80" HorizontalAlignment="Left" Click="SaveAccountData"/>
+
             <ScrollViewer Grid.Column="0" Grid.Row="1" VerticalScrollBarVisibility="Hidden" BorderBrush="{StaticResource BackgroundColour}">
                 <StackPanel Name="AccountList">
                 </StackPanel>

@@ -47,6 +47,7 @@ namespace LockBox
                 if(accountName == account.AccountName)
                 {
                     accounts.Remove(account);
+                    SaveData(filePath);
                     break;
                 }
             }

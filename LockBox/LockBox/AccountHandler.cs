@@ -6,6 +6,7 @@ using System.Net.Mail;
 using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Documents;
 
 namespace LockBox
@@ -34,12 +35,25 @@ namespace LockBox
         /// <param name="emailAddress">E-mail address to which the account is linked.</param>
         /// <param name="password">The password for the account.</param>
         /// <param name="extraNotes">Any extra details about the account that do not fit into the prior categories.</param>
-        public void AddAccount(string accountName, string emailAddress, string password, string extraNotes) 
-        { 
-            accounts.Add(new Account(accountName, emailAddress, password, extraNotes));
-            SaveData(filePath);
+        public bool AddAccount(string accountName, string emailAddress, string password, string extraNotes)
+        {
+            try
+            {
+                foreach(Account account in accounts)
+                {
+                    if(account.AccountName == accountName) { throw new Exception("Account Name already in use"); }
+                }
+                accounts.Add(new Account(accountName, emailAddress, password, extraNotes));
+                SaveData(filePath);
+                return true;
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); return false; }
         }
 
+        /// <summary>
+        /// Removes the account that has the given name from the AccountList.
+        /// </summary>
+        /// <param name="accountName">Name of Account to remove.</param>
         public void RemoveAccount(string accountName) 
         {
             foreach(Account account in accounts)

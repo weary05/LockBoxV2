@@ -4,10 +4,10 @@ Core function:
 	--Can encrypt data to a text file.--
 	--Can decrypt data from text file.--
 	--Able to create new accounts.--
-	Able to delete registered accounts
+	--Able to delete registered accounts--
 	Password opens first, user cannot progress without entering correct password.
 	User can define file path to data file.
-	Prevent any accounts being made with the same name (they overwrite in the search)
+	--Prevent any accounts being made with the same name (they overwrite in the search)--
 
 Data recovery:
 
@@ -16,14 +16,4 @@ Quality of Life:
 	Allow multiple different files with different passwords.
 
 
-Windows:
-	Login
-		Password entry
-		Create new file
-		Define file paths (perhaps have this save the last used location).
-
-	Main
-		--View Account Data--
-		Edit account data
-		
 	

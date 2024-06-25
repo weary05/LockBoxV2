@@ -19,6 +19,7 @@ namespace LockBox
             this.AccountName = accountName;
             try
             {
+                if(emailAddress.Contains(" ")) { throw new Exception(); }
                 this.Address = new MailAddress(emailAddress);
             }
             catch { throw new Exception("Email address entered is not valid"); }

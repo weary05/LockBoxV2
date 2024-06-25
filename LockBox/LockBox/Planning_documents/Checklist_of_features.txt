@@ -1,8 +1,8 @@
 Core function:
-	Select different accounts to display details
+	--Select different accounts to display details--
 	Able to edit the information of all accounts, must confirm to save any changes to file.
-	Can encrypt data to a text file.
-	Can decrypt data from text file.
+	--Can encrypt data to a text file.--
+	--Can decrypt data from text file.--
 	Able to create new accounts.
 	Able to delete registered accounts
 	Password opens first, user cannot progress without entering correct password.
@@ -22,7 +22,7 @@ Windows:
 		Define file paths (perhaps have this save the last used location).
 
 	Main
-		View Account Data
+		--View Account Data--
 		Edit account data
 		
 	

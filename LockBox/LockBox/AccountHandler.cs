@@ -77,6 +77,7 @@ namespace LockBox
                 string[] lines = data.Split("\r\n");
                 foreach (string line in lines)
                 {
+                    if(line == "") {  continue; }
                     string[] parts = line.Split(',');
                     Account a = new Account(parts[0], parts[1], parts[2], parts[3]);
                     accounts.Add(a);
@@ -104,6 +105,7 @@ namespace LockBox
         /// <returns></returns>
         private void LoadData(string path) 
         {
+            if (!File.Exists(path)) { StreamWriter writer = new(path); writer.Close(); } //used streamwriter to create file because File.Create seems to leave stream open which prevents StreamReader from accessing it.
             StreamReader reader = new(path);
             string data = reader.ReadToEnd();
             reader.Close();

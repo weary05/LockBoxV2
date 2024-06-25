@@ -61,6 +61,10 @@
             <Button Name="SaveButton" Grid.Column="1" Grid.Row="0" Background="Red"
                     Foreground="{StaticResource TextColour}" Margin="10 0 0 0" Visibility="Hidden"
                     Content="Save" Height="20" Width="80" HorizontalAlignment="Left" Click="SaveAccountData"/>
+            <Button Name="DeleteButton" Grid.Column="1" Grid.Row="0" Style="{StaticResource ButtonStyle}"
+                    Height="20" Width="80" HorizontalAlignment="Left" Margin="100 0 0 0" Content="Delete"
+                    Click="DeleteCurrentAccount"/>
+
 
             <ScrollViewer Grid.Column="0" Grid.Row="1" VerticalScrollBarVisibility="Hidden" BorderBrush="{StaticResource BackgroundColour}">
                 <StackPanel Name="AccountList">

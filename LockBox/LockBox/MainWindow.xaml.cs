@@ -26,7 +26,7 @@ namespace LockBox
             password = "a";
             handler = new AccountHandler(password, "AppData/Data.txt");
             //
-            Update(null, null);
+            Update();
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -34,7 +34,7 @@ namespace LockBox
             System.Environment.Exit(0);
         }
 
-        private void Update(object sender, RoutedEventArgs e)
+        private void Update(object sender = null, RoutedEventArgs e = null)
         {
             AccountList.Children.Clear();
             foreach (Account account in handler.accounts) 
@@ -82,7 +82,13 @@ namespace LockBox
             EmailAddressBox.Text = "";
             PasswordBox.Text = "";
             ExtraDetailsBox.Text = "";
-            Update(null, null);
+            Update();
+        }
+
+        private void DeleteCurrentAccount(object sender, RoutedEventArgs e)
+        {
+            handler.RemoveAccount(AccountNameBox.Text);
+            Update();
         }
     }
 }

@@ -7,6 +7,7 @@ Core function:
 	Able to delete registered accounts
 	Password opens first, user cannot progress without entering correct password.
 	User can define file path to data file.
+	Prevent any accounts being made with the same name (they overwrite in the search)
 
 Data recovery:
 

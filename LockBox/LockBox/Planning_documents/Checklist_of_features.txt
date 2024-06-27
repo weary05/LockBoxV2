@@ -1,6 +1,6 @@
 Core function:
 	--Select different accounts to display details--
-	Able to edit the information of all accounts, must confirm to save any changes to file.
+	--Able to edit the information of all accounts, must confirm to save any changes to file.--
 	--Can encrypt data to a text file.--
 	--Can decrypt data from text file.--
 	--Able to create new accounts.--

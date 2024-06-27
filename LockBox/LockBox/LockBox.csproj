@@ -12,4 +12,8 @@
     <Folder Include="Planning_documents\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Data" Version="24.1.3" />
+  </ItemGroup>
+
 </Project>

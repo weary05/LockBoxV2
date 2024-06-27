@@ -65,6 +65,8 @@ namespace LockBox
             string name = sender.ToString();
             name = name.Substring(name.IndexOf(" ") + 1);
 
+            EditButton.Visibility = Visibility.Visible;
+
             //search through accounts for the one that matches the selected option and set account data for display.
             foreach (Account account in handler.accounts)
             {
@@ -85,10 +87,7 @@ namespace LockBox
         /// <param name="e"></param>
         private void CreateNewAccount(object sender, RoutedEventArgs e)
         {
-            CreateNewAccountButton.Visibility = Visibility.Hidden;
-            DeleteButton.Visibility = Visibility.Hidden;
-            SaveButton.Visibility = Visibility.Visible;
-            CancelButton.Visibility = Visibility.Visible;
+            EditModeEnable();
             AccountNameBox.Text = "Account Name";
             EmailAddressBox.Text = "Email Address";
             PasswordBox.Text = "Password";
@@ -129,6 +128,25 @@ namespace LockBox
         }
 
         /// <summary>
+        /// Allows the information boxed to be edited.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditModeEnable(object sender = null, RoutedEventArgs e = null)
+        {
+            CreateNewAccountButton.Visibility = Visibility.Hidden;
+            DeleteButton.Visibility = Visibility.Hidden;
+            SaveButton.Visibility = Visibility.Visible;
+            CancelButton.Visibility = Visibility.Visible;
+            EditButton.Visibility = Visibility.Hidden;
+
+            AccountNameBox.IsReadOnly = false;
+            EmailAddressBox.IsReadOnly=false;
+            PasswordBox.IsReadOnly=false;
+            ExtraDetailsBox.IsReadOnly=false;
+        }
+
+        /// <summary>
         /// Cancels the current edit/ creation of a new account.
         /// </summary>
         /// <param name="sender"></param>
@@ -139,10 +157,17 @@ namespace LockBox
             DeleteButton.Visibility = Visibility.Visible;
             SaveButton.Visibility = Visibility.Hidden;
             CancelButton.Visibility = Visibility.Hidden;
+            EditButton.Visibility = Visibility.Visible;
+
             AccountNameBox.Text = string.Empty;
             EmailAddressBox.Text = string.Empty;
             PasswordBox.Text = string.Empty;
             ExtraDetailsBox.Text = string.Empty;
+
+            AccountNameBox.IsReadOnly = true;
+            EmailAddressBox.IsReadOnly = true;
+            PasswordBox.IsReadOnly = true;
+            ExtraDetailsBox.IsReadOnly = true;
         }
     }
 }

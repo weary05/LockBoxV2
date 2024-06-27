@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Utils.CommonDialogs.Internal;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Documents;
+using System.Windows.Forms;
 
 namespace LockBox
 {
@@ -41,7 +43,19 @@ namespace LockBox
             {
                 foreach(Account account in accounts)
                 {
-                    if(account.AccountName == accountName) { throw new Exception("Account Name already in use"); }
+                    if(account.AccountName == accountName) 
+                    {
+                        var result = MessageBox.Show("An account with this name already exists, would you like to overwrite it?", "", MessageBoxButton.YesNo);
+                        if(result == MessageBoxResult.Yes)
+                        {
+                            accounts.Remove(account);
+                            break;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
                 }
                 accounts.Add(new Account(accountName, emailAddress, password, extraNotes));
                 SaveData(filePath);

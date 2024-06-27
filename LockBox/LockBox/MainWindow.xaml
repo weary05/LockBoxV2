@@ -67,6 +67,9 @@
             <Button Name="CancelButton" Grid.Column="1" Grid.Row="0" Style="{StaticResource ButtonStyle}"
                     Height="20" Width="80" HorizontalAlignment="Left" Margin="100 0 0 0" Content="Cancel"
                     Click="CancelEdit" Visibility="Hidden"/>
+            <Button Name="EditButton" Grid.Column="1" Grid.Row="0" Style="{StaticResource ButtonStyle}"
+                    Height="20" Width="80" HorizontalAlignment="Left" Margin="190 0 0 0" Content="Edit Data"
+                    Click="EditModeEnable" Visibility="Hidden"/>
 
 
             <ScrollViewer Grid.Column="0" Grid.Row="1" VerticalScrollBarVisibility="Hidden" BorderBrush="{StaticResource BackgroundColour}">
@@ -83,16 +86,16 @@
                 </Grid.RowDefinitions>
 
                 <TextBox Name="AccountNameBox" Style="{StaticResource TextBoxStyle}"
-                         Margin="0 0 10 0"/>
+                         Margin="0 0 10 0" IsReadOnly="True"/>
 
                 <TextBox Name="EmailAddressBox" Style="{StaticResource TextBoxStyle}" Grid.Row="1"
-                         Margin="0 0 10 0"/>
+                         Margin="0 0 10 0" IsReadOnly="True"/>
                 
                 <TextBox Name="PasswordBox" Style="{StaticResource TextBoxStyle}" Margin="0 0 50 0"
-                         Grid.Row="2"/>
+                         Grid.Row="2" IsReadOnly="True"/>
 
                 <TextBox Name="ExtraDetailsBox" Style="{StaticResource TextBoxStyle}" Grid.Row="3"
-                         Margin="0 0 10 0"/>
+                         Margin="0 0 10 0" IsReadOnly="True"/>
             </Grid>
 
         </Grid>

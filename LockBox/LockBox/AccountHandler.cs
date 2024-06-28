@@ -135,7 +135,6 @@ namespace LockBox
         /// <returns></returns>
         private void LoadData(string path) 
         {
-            if (!File.Exists(path)) { StreamWriter writer = new(path); writer.Close(); } //used streamwriter to create file because File.Create seems to leave stream open which prevents StreamReader from accessing it.
             StreamReader reader = new(path);
             string data = reader.ReadToEnd();
             reader.Close();

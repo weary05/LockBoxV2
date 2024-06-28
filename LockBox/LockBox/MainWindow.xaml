@@ -12,33 +12,7 @@
         Background="Transparent"
         WindowStartupLocation="CenterScreen"
         >
-    <Window.Resources>
-        <SolidColorBrush x:Key="BackgroundColour" Color="#303030"/>
-        <SolidColorBrush x:Key="TextColour" Color="#ccccca"/>
-        <Style x:Key="TextBoxStyle" TargetType="TextBox">
-            <Setter Property ="Background" Value="{StaticResource BackgroundColour}"/>
-            <Setter Property="Foreground" Value="{StaticResource TextColour}"/>
-            <Setter Property="SelectionBrush" Value="Blue"/>
-            <Setter Property="TextWrapping" Value="Wrap"/>
-            <Setter Property="AcceptsReturn" Value="False"/>
-            <Setter Property="AcceptsTab" Value="False"/>
-            <Setter Property="IsReadOnly" Value="False"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="FontSize" Value="20"/>
-        </Style>
-        <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="{StaticResource BackgroundColour}"/>
-            <Setter Property="Foreground" Value="{StaticResource TextColour}"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-        </Style>
-        <Style x:Key="GridStyle" TargetType="Grid">
-            <Setter Property="Background" Value="{StaticResource BackgroundColour}"/>
-        </Style>
-        <Style x:Key="BorderStyle" TargetType="Border">
-            <Setter Property="Background" Value="{StaticResource BackgroundColour}"/>
-            <Setter Property="CornerRadius" Value="20"/>
-        </Style>
-    </Window.Resources>
+
     <Border Style="{StaticResource BorderStyle}">
         <Grid Style="{StaticResource GridStyle}" Margin="10,10,10,10">
             <Grid.ColumnDefinitions>
@@ -91,7 +65,7 @@
                 <TextBox Name="EmailAddressBox" Style="{StaticResource TextBoxStyle}" Grid.Row="1"
                          Margin="0 0 10 0" IsReadOnly="True"/>
                 
-                <TextBox Name="PasswordBox" Style="{StaticResource TextBoxStyle}" Margin="0 0 50 0"
+                <TextBox Name="PasswordBox" Style="{StaticResource TextBoxStyle}"
                          Grid.Row="2" IsReadOnly="True"/>
 
                 <TextBox Name="ExtraDetailsBox" Style="{StaticResource TextBoxStyle}" Grid.Row="3"

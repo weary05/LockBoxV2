@@ -5,15 +5,14 @@ Core function:
 	--Can decrypt data from text file.--
 	--Able to create new accounts.--
 	--Able to delete registered accounts--
-	Password opens first, user cannot progress without entering correct password.
-	User can define file path to data file.
+	--Password opens first, user cannot progress without entering correct password.--
+	--User can define file path to data file.--
 	--Prevent any accounts being made with the same name (they overwrite in the search)--
 
 Data recovery:
 
 Quality of Life:
 	Ability to adjust window size (need to ensure boxes automatically resize too) or make window size proportional to the size of the display.
-	Allow multiple different files with different passwords.
 
 
 	

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using DevExpress.DashboardWeb.Native;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -21,11 +22,12 @@ namespace LockBox
         private AccountHandler handler;
         public MainWindow()
         {
-            InitializeComponent();
-            //temporary remove later
-            password = "a";
-            handler = new AccountHandler(password, "AppData/Data.txt");
-            //
+            InitializeComponent();            
+        }
+
+        public void SubmitPassword(string password, string filePath)
+        {
+            handler = new AccountHandler(password, filePath);
             Update();
         }
 

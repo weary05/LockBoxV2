@@ -24,7 +24,8 @@
                 <RowDefinition Height="15*"/>
             </Grid.RowDefinitions>
 
-            <TextBox Name="SearchBar" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBoxStyle}" Text="Search"/>
+            <TextBox Name="SearchBar" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBoxStyle}" Text="Search" KeyDown="Update"
+                     BorderBrush="DarkGray"/>
             
             <Button Name="ExitButton" Grid.Column="1" Grid.Row="0" Style="{StaticResource ButtonStyle}"
                     Content="X" Height="20" Width="20" HorizontalAlignment="Right" Margin="0 0 10 0"

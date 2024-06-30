@@ -12,6 +12,7 @@ Core function:
 Data recovery:
 
 Quality of Life:
+can export passwords to an excel doc
 	Ability to adjust window size (need to ensure boxes automatically resize too) or make window size proportional to the size of the display.
 
 

@@ -51,9 +51,12 @@ namespace LockBox
             AccountList.Children.Clear();
             foreach (Account account in handler.accounts) 
             {
-                Button button = new Button();
-                button.Content = account.AccountName; button.Style = (Style)FindResource("ButtonStyle"); button.Click += OpenAccountData;
-                AccountList.Children.Add(button);
+                if (account.AccountName.ToLower().StartsWith(SearchBar.Text.ToLower()) || SearchBar.Text.ToLower() == "search" || SearchBar.Text == string.Empty)
+                {
+                    Button button = new Button();
+                    button.Content = account.AccountName; button.Style = (Style)FindResource("ButtonStyle"); button.Click += OpenAccountData;
+                    AccountList.Children.Add(button);
+                }
             }
         }
 
